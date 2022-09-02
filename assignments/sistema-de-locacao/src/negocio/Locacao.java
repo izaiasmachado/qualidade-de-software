@@ -1,34 +1,43 @@
 package negocio;
 
+import java.util.Date;
+
 public class Locacao {
-	Cliente cliente;
-	Filme filme;
-	double valor;
+	private Cliente cliente;
+	private Filme filme;
+	private double valor;
+	private Date date;
 	
-	public void alugar(Cliente cliente, Filme filme) {
+	protected void alugar(Cliente cliente, Filme filme) {
 		this.cliente = cliente;
 		this.filme = filme;
+		this.date = new Date();
 	}
 	
-	public void alugar(Cliente cliente, Filme filme, double valor) {
+	protected void alugar(Cliente cliente, Filme filme, double valor) {
 		this.cliente = cliente;
 		this.filme = filme;
 		this.valor = valor;
+		this.date = new Date();
 	}	
 	
-	public double getValor() {
+	protected double getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	protected void setValor(double valor) {
 		this.valor = valor;
 	}
 
-	public Cliente getCliente() {
+	protected Cliente getCliente() {
 		return cliente;
 	}
 
-	public Filme getFilme() {
+	protected Filme getFilme() {
 		return filme;
+	}
+
+	protected Date getDate() {
+		return date;
 	}
 }

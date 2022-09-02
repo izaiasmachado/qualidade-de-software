@@ -49,7 +49,7 @@ public class TransacaoTest {
 
 	@Test
 	public void testGetLucroFilme() {		
-		Filme filmeAuxiliar = new Filme(filme.id);
+		Filme filmeAuxiliar = new Filme(filme.getId());
 		double lucroFilme = transacao.getLucroFilme(filmeAuxiliar);
 		assertEquals(2, lucroFilme, 0.01);
 	}

@@ -22,7 +22,7 @@ public class FilmeTest {
 		int id = 1;
 		filme = new Filme(id);
 		
-		assertEquals(id, filme.id);
+		assertEquals(id, filme.getId());
 	}
 	
 	@Test

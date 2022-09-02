@@ -34,8 +34,8 @@ public final class Transacao {
 		double valorArrecadacaoFilme = 0;
 		
 		for (Locacao locacao : locacoes) {
-			Filme filmeLocado = locacao.filme;
-			if (filme.id != filmeLocado.id) continue;
+			Filme filmeLocado = locacao.getFilme();
+			if (filme.getId() != filmeLocado.getId()) continue;
 
 			double valorLocacaoFilme = locacao.getValor();
 			filme = filmeLocado;

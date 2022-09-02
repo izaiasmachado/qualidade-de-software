@@ -3,10 +3,10 @@ package negocio;
 import java.util.Objects;
 
 public class Filme {
-	protected int id;
-	protected String nome;
-	protected double valor;
-	protected Genero genero;
+	private int id;
+	private String nome;
+	private double valor;
+	private Genero genero;
 	
 	public Filme(int id) {
 		this.id = id;

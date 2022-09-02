@@ -1,9 +1,10 @@
 package negocio;
 
 public class Cliente {
-	protected int id;
-	protected String nome;
-	
+	private int id;
+	private String nome;
+	private boolean active = true;
+
 	public Cliente(int id, String nome) {
 		this.id = id;
 		this.nome = nome;
