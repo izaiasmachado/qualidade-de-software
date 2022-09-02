@@ -6,7 +6,7 @@ import java.util.Map;
 
 // Classe com implementação do Singleton para armazenar as locações
 public final class Transacao {
-	protected ArrayList<Locacao> locacoes;
+	public ArrayList<Locacao> locacoes;
 	private static Transacao instance = null;
 	
 	private Transacao() {
