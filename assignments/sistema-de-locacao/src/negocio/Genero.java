@@ -1,7 +1,9 @@
 package negocio;
 
 public enum Genero {
-     COMEDIA,
-     DRAMA,
+	ACAO,
+	COMEDIA,
+	DRAMA,
+	MUSICAL,
 	ROMANCE,
 }

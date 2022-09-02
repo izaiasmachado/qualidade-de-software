@@ -2,6 +2,8 @@ package negocio;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -54,4 +56,35 @@ public class TransacaoTest {
 		assertEquals(2, lucroFilme, 0.01);
 	}
 
+	@Test
+	public void testGetLocacoesPorGenero() throws Exception {
+		Locacao locacao3 = new Locacao();
+		Locacao locacao4 = new Locacao();
+		
+		Filme filmeLocacao3 = new Filme("Um dia na Javalândia", Genero.MUSICAL);
+		Filme filmeLocacao4 = new Filme("C# versus Java - A batalha do século", Genero.ACAO);
+
+		Cliente cliente3 = new Cliente(3, "Marcos");
+		Cliente cliente4 = new Cliente(3, "Gabriel");
+		
+		locacao3.alugar(cliente3, filmeLocacao3);
+		locacao4.alugar(cliente4, filmeLocacao4, 0);
+		
+		transacao.locacoes.add(locacao3);
+		transacao.locacoes.add(locacao4);
+		
+		Map<Genero, Integer> mapa = transacao.getLocacoesPorGenero();
+		
+		Integer locacoesAcao = mapa.get(Genero.ACAO);
+		Integer locacoesComedia = mapa.get(Genero.COMEDIA);
+		Integer locacoesDrama = mapa.get(Genero.DRAMA);
+		Integer locacoesMusical = mapa.get(Genero.MUSICAL);
+		Integer locacoesRomance = mapa.get(Genero.ROMANCE);
+		
+		assertTrue(locacoesAcao == 1);
+		assertTrue(locacoesComedia == 2);
+		assertTrue(locacoesDrama == null);
+		assertTrue(locacoesMusical == 1);
+		assertTrue(locacoesRomance == null);
+	}
 }

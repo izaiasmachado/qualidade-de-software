@@ -1,6 +1,8 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 
 // Classe com implementação do Singleton para armazenar as locações
 public final class Transacao {
@@ -46,5 +48,24 @@ public final class Transacao {
 		double lucro = (valorArrecadacaoFilme / valorCompraFilme) * 100;
 		return lucro;
 	}
+	
+	public Map<Genero, Integer> getLocacoesPorGenero() {
+		Map<Genero, Integer> mapa = new EnumMap<Genero, Integer>(Genero.class);
+		
+		for (Locacao locacao : locacoes) {
+			Filme filmeLocado = locacao.getFilme();
+			Genero generoFilmeLocado = filmeLocado.getGenero();
+			
+			Integer aparicoes = mapa.get(generoFilmeLocado);
+			
+			if (aparicoes == null) {
+				aparicoes = 0;
+			}
+			
+			mapa.put(generoFilmeLocado, aparicoes + 1);
+		}
+		
+		return mapa;
+	}
+	
 }
-
