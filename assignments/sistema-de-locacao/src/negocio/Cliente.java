@@ -1,15 +1,16 @@
 package negocio;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Cliente {
 	private int id;
 	private String nome;
 	private boolean ativo = true;
-	public ArrayList<Filme> listaFilmesFavoritos;
+	public Set<Filme> listaFilmesFavoritos;
 	
 	public Cliente(int id, String nome) {
-		this.listaFilmesFavoritos = new ArrayList<Filme>();
+		this.listaFilmesFavoritos = new HashSet<Filme>();
 		this.id = id;
 		this.nome = nome;
 	}
