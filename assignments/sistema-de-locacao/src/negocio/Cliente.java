@@ -3,7 +3,7 @@ package negocio;
 public class Cliente {
 	private int id;
 	private String nome;
-	private boolean active = true;
+	private boolean ativo = true;
 
 	public Cliente(int id, String nome) {
 		this.id = id;
@@ -24,5 +24,13 @@ public class Cliente {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	protected boolean isAtivo() {
+		return ativo;
+	}
+
+	protected void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 }
