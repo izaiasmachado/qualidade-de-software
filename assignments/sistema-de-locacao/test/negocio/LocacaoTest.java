@@ -67,30 +67,4 @@ public class LocacaoTest {
 		assertEquals(locacao.getCliente(), cliente);
 		assertEquals(locacao.getValor(), valor, 0.01);
 	}
-
-	@Test
-	public void testGetValor() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetValor() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetCliente() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetFilme() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetDate() {
-		fail("Not yet implemented");
-	}
-
 }
