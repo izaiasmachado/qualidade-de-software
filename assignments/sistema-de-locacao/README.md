@@ -1,4 +1,4 @@
-<h1 align="center">Teste de software - Sistema de Locação</h1>
+<h1 align="center">Teste de Software - Sistema de Locação</h1>
 
 ## Roteiro
 Para sistema de locação feito nas últimas aulas acrescente as seguintes funcionalidades e

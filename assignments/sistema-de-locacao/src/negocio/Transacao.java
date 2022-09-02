@@ -43,7 +43,6 @@ public final class Transacao {
 		}
 		
 		double valorCompraFilme = filme.getValor();
-		
 		double lucro = (valorArrecadacaoFilme / valorCompraFilme) * 100;
 		return lucro;
 	}

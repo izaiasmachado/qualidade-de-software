@@ -14,7 +14,6 @@ public class Locacao {
 		this.cliente = cliente;
 		this.filme = filme;
 		this.valor = valor;
-		System.out.println(this.toString());
 	}	
 	
 	public double getValor() {
@@ -31,10 +30,5 @@ public class Locacao {
 
 	public Filme getFilme() {
 		return filme;
-	}
-
-	@Override
-	public String toString() {
-		return "Locacao [cliente=" + cliente + ", filme=" + filme + ", valor=" + valor + "]";
 	}
 }
