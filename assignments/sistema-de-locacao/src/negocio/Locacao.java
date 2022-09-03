@@ -11,14 +11,14 @@ public class Locacao {
 	protected void alugar(Cliente cliente, Filme filme) throws Exception {
 		this.setCliente(cliente);
 		this.setFilme(filme);
-		this.setDate(new Date());
+		this.setCurrentDate();
 	}
 	
 	protected void alugar(Cliente cliente, Filme filme, double valor) throws Exception {
 		this.setCliente(cliente);
 		this.setFilme(filme);
 		this.setValor(valor);
-		this.setDate(new Date());
+		this.setCurrentDate();
 	}	
 	
 	protected double getValor() {
@@ -55,5 +55,9 @@ public class Locacao {
 
 	private void setDate(Date date) {
 		this.date = date;
+	}
+	
+	private void setCurrentDate() {
+		setDate(new Date());
 	}
 }
