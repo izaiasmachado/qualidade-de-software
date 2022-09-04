@@ -1,5 +1,7 @@
 package negocio;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Locacao {
@@ -63,9 +65,22 @@ public class Locacao {
 	protected Date getDate() {
 		return date;
 	}
-
+	
 	private void setDate(Date date) {
 		this.date = date;
+	}
+	
+	protected String getDataLocacao() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+		String stringDate = dateFormat.format(getDate());
+		return stringDate;
+	}
+	
+	
+	protected String getHoraLocacao() {
+		DateFormat hourFormat = new SimpleDateFormat("hh:mm:ss");  
+		String stringDate = hourFormat.format(getDate());
+		return stringDate;		
 	}
 	
 	private void setCurrentDate() {

@@ -2,6 +2,10 @@ package negocio;
 
 import static org.junit.Assert.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -85,5 +89,16 @@ public class LocacaoTest {
 		double valorComDesconto = locacao2.getDesconto(valor, filme2);
 		double porcentagemDesconto = 1 - (valorComDesconto / valor);
 		assertEquals(desconto, porcentagemDesconto, 0.01);
+	}
+	
+	@Test
+	public void testGetDataLocacao() throws Exception {
+		DateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");  
+
+		Date dataAtual = new Date();
+		String dataAtualString = formatoData.format(dataAtual);
+		
+		locacao.alugar(cliente, filme);
+		assertEquals(dataAtualString, locacao.getDataLocacao());
 	}
 }
