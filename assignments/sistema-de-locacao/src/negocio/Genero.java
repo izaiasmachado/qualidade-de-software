@@ -1,7 +1,16 @@
 package negocio;
 
 public class Genero {
-	double desconto = 0.00;
+	private GeneroEnum nome;
+	private double desconto = 0.00;
+	
+	protected Genero(GeneroEnum nome) {
+		this.nome = nome;
+	}
+	
+	protected GeneroEnum getNome() {
+		return this.nome;
+	}
 	
 	protected double getDesconto() {
 		return this.desconto;

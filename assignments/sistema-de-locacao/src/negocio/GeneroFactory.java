@@ -13,7 +13,7 @@ public class GeneroFactory {
 		List<GeneroEnum> listaGeneros = Arrays.asList(GeneroEnum.values());
 
 		for (GeneroEnum generoEnum : listaGeneros) {
-			Genero genero = getGeneroFactory(generoEnum);
+			Genero genero = new Genero(generoEnum);
 			mapa.put(generoEnum, genero);
 		}
 	}
@@ -25,22 +25,5 @@ public class GeneroFactory {
 	protected Genero getGenero(GeneroEnum generoEnum) {
 		Genero genero = mapa.get(generoEnum);
 		return genero;
-	}
-	
-	private static Genero getGeneroFactory(GeneroEnum genero) {
-		switch (genero) {
-			case ACAO:
-				return new GeneroAcao();
-			case COMEDIA:
-				return new GeneroComedia();
-			case DRAMA:
-				return new GeneroDrama();
-			case MUSICAL:
-				return new GeneroMusical();
-			case ROMANCE:
-				return new GeneroRomance();
-			default:
-				return null;
-		}
 	}
 }
