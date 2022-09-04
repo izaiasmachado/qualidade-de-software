@@ -26,7 +26,19 @@ public class Locacao {
 	}
 
 	protected void setValor(double valor) {
-		this.valor = valor;
+		double valorComDesconto = getDesconto(valor, filme);
+		this.valor = valorComDesconto;
+	}
+	
+	protected double getDesconto(double valor, Filme filme) {
+		Genero genero = filme.getGenero();
+		
+		switch (genero) {
+			case ROMANCE:
+				return 0.9 * valor;
+			default:
+				return valor;
+		}
 	}
 
 	protected Cliente getCliente() {

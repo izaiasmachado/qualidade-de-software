@@ -67,4 +67,16 @@ public class LocacaoTest {
 		assertEquals(locacao.getCliente(), cliente);
 		assertEquals(locacao.getValor(), valor, 0.01);
 	}
+	
+	@Test
+	public void testGetDesconto() throws Exception {
+		Filme filme2 = new Filme(1, "JavaLand", Genero.ROMANCE, 1000.00);
+		Cliente cliente2 = new Cliente(2, "Pedro");
+		Locacao locacao2 = new Locacao();
+		
+		locacao2.alugar(cliente2, filme2);
+		double valorComDesconto = locacao.getDesconto(valor, filme2);
+		double porcentagemDesconto = valorComDesconto / valor;
+		assertEquals(0.90, porcentagemDesconto, 0.01);
+	}
 }
