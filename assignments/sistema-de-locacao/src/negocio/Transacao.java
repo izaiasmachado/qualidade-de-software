@@ -49,12 +49,12 @@ public final class Transacao {
 		return lucro;
 	}
 	
-	public Map<Genero, Integer> getLocacoesPorGenero() {
-		Map<Genero, Integer> mapa = new EnumMap<Genero, Integer>(Genero.class);
+	public Map<GeneroEnum, Integer> getLocacoesPorGenero() {
+		Map<GeneroEnum, Integer> mapa = new EnumMap<GeneroEnum, Integer>(GeneroEnum.class);
 		
 		for (Locacao locacao : locacoes) {
 			Filme filmeLocado = locacao.getFilme();
-			Genero generoFilmeLocado = filmeLocado.getGenero();
+			GeneroEnum generoFilmeLocado = filmeLocado.getGenero();
 			
 			Integer aparicoes = mapa.get(generoFilmeLocado);
 			

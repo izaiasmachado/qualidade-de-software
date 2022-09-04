@@ -6,18 +6,18 @@ public class Filme {
 	private int id;
 	private String nome;
 	private double valor;
-	private Genero genero;
+	private GeneroEnum genero;
 	
 	public Filme(int id) {
 		this.id = id;
 	}
 	
-	public Filme(String nome, Genero genero) {
+	public Filme(String nome, GeneroEnum genero) {
 		this.nome = nome;
 		this.genero = genero;
 	}
 
-	public Filme(int id, String nome, Genero genero, double valor) {
+	public Filme(int id, String nome, GeneroEnum genero, double valor) {
 		this.id = id;
 		this.nome = nome;
 		this.genero = genero;
@@ -44,11 +44,11 @@ public class Filme {
 		this.valor = valor;
 	}
 
-	public Genero getGenero() {
+	public GeneroEnum getGenero() {
 		return genero;
 	}
 
-	public void setGenero(Genero genero) {
+	public void setGenero(GeneroEnum genero) {
 		this.genero = genero;
 	}
 

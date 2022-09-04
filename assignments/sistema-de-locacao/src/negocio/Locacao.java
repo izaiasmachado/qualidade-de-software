@@ -31,14 +31,13 @@ public class Locacao {
 	}
 	
 	protected double getDesconto(double valor, Filme filme) {
-		Genero genero = filme.getGenero();
+		GeneroFactory factory = GeneroFactory.getInstance();
+
+		GeneroEnum generoEnum = filme.getGenero();
+		Genero genero = factory.getGenero(generoEnum);
 		
-		switch (genero) {
-			case ROMANCE:
-				return 0.9 * valor;
-			default:
-				return valor;
-		}
+		double desconto = genero.getDesconto();
+		return (1 - desconto) * valor;
 	}
 
 	protected Cliente getCliente() {

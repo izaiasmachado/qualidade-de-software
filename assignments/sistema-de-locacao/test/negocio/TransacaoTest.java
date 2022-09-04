@@ -17,7 +17,7 @@ public class TransacaoTest {
 	@Before
 	public void setUp() throws Exception {
 		transacao = Transacao.getInstance();
-		filme = new Filme(1, "JavaScript e Java - A Batalha Final", Genero.COMEDIA, 2000.00);
+		filme = new Filme(1, "JavaScript e Java - A Batalha Final", GeneroEnum.COMEDIA, 2000.00);
 
 		cliente = new Cliente(1, "Izaias");
 		cliente2 = new Cliente(2, "Pedro");
@@ -61,8 +61,8 @@ public class TransacaoTest {
 		Locacao locacao3 = new Locacao();
 		Locacao locacao4 = new Locacao();
 		
-		Filme filmeLocacao3 = new Filme("Um dia na Javalândia", Genero.MUSICAL);
-		Filme filmeLocacao4 = new Filme("C# versus Java - A batalha do século", Genero.ACAO);
+		Filme filmeLocacao3 = new Filme("Um dia na Javalândia", GeneroEnum.MUSICAL);
+		Filme filmeLocacao4 = new Filme("C# versus Java - A batalha do século", GeneroEnum.ACAO);
 
 		Cliente cliente3 = new Cliente(3, "Marcos");
 		Cliente cliente4 = new Cliente(3, "Gabriel");
@@ -73,13 +73,13 @@ public class TransacaoTest {
 		transacao.locacoes.add(locacao3);
 		transacao.locacoes.add(locacao4);
 		
-		Map<Genero, Integer> mapa = transacao.getLocacoesPorGenero();
+		Map<GeneroEnum, Integer> mapa = transacao.getLocacoesPorGenero();
 		
-		Integer locacoesAcao = mapa.get(Genero.ACAO);
-		Integer locacoesComedia = mapa.get(Genero.COMEDIA);
-		Integer locacoesDrama = mapa.get(Genero.DRAMA);
-		Integer locacoesMusical = mapa.get(Genero.MUSICAL);
-		Integer locacoesRomance = mapa.get(Genero.ROMANCE);
+		Integer locacoesAcao = mapa.get(GeneroEnum.ACAO);
+		Integer locacoesComedia = mapa.get(GeneroEnum.COMEDIA);
+		Integer locacoesDrama = mapa.get(GeneroEnum.DRAMA);
+		Integer locacoesMusical = mapa.get(GeneroEnum.MUSICAL);
+		Integer locacoesRomance = mapa.get(GeneroEnum.ROMANCE);
 		
 		assertTrue(locacoesAcao == 1);
 		assertTrue(locacoesComedia == 2);

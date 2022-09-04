@@ -21,7 +21,7 @@ public class LocacaoTest {
 	@Before
 	public void setUp() throws Exception {
 		cliente = new Cliente(1, "Izaias");
-		filme = new Filme(1, "JavaLand", Genero.DRAMA, 1000.00);
+		filme = new Filme(1, "JavaLand", GeneroEnum.DRAMA, 1000.00);
 		locacao = new Locacao();
 		valor = 20.00;
 	}
@@ -70,13 +70,20 @@ public class LocacaoTest {
 	
 	@Test
 	public void testGetDesconto() throws Exception {
-		Filme filme2 = new Filme(1, "JavaLand", Genero.ROMANCE, 1000.00);
+		Filme filme2 = new Filme(1, "JavaLand", GeneroEnum.ROMANCE, 1000.00);
 		Cliente cliente2 = new Cliente(2, "Pedro");
 		Locacao locacao2 = new Locacao();
 		
+		GeneroFactory factory = GeneroFactory.getInstance();
+		Genero romance = factory.getGenero(filme2.getGenero());
+
+		double desconto = 0.15;
+		romance.setDesconto(desconto);
+		
 		locacao2.alugar(cliente2, filme2);
-		double valorComDesconto = locacao.getDesconto(valor, filme2);
-		double porcentagemDesconto = valorComDesconto / valor;
-		assertEquals(0.90, porcentagemDesconto, 0.01);
+		
+		double valorComDesconto = locacao2.getDesconto(valor, filme2);
+		double porcentagemDesconto = 1 - (valorComDesconto / valor);
+		assertEquals(desconto, porcentagemDesconto, 0.01);
 	}
 }
