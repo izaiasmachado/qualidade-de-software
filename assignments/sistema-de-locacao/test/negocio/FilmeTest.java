@@ -22,13 +22,13 @@ public class FilmeTest {
 		int id = 1;
 		filme = new Filme(id);
 		
-		assertEquals(id, filme.id);
+		assertEquals(id, filme.getId());
 	}
 	
 	@Test
 	public void testFilmeStringGenero() {
 		String nome = "Java";
-		Genero genero = Genero.ROMANCE;
+		GeneroEnum genero = GeneroEnum.ROMANCE;
 		filme = new Filme(nome, genero);
 		
 		assertEquals(nome, filme.getNome());
@@ -40,7 +40,7 @@ public class FilmeTest {
 	public void testFilmeIntStringGeneroDouble() {
 		int id = 20;
 		String nome = "Java";
-		Genero genero = Genero.ROMANCE;
+		GeneroEnum genero = GeneroEnum.ROMANCE;
 		double valor = 9.99;
 		filme = new Filme(id, nome, genero, valor);
 		

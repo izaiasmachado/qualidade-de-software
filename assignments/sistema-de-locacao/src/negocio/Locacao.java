@@ -1,34 +1,74 @@
 package negocio;
 
+import java.util.Date;
+
 public class Locacao {
-	Cliente cliente;
-	Filme filme;
-	double valor;
+	private Cliente cliente;
+	private Filme filme;
+	private double valor;
+	private Date date;
 	
-	public void alugar(Cliente cliente, Filme filme) {
-		this.cliente = cliente;
-		this.filme = filme;
+	protected void alugar(Cliente cliente, Filme filme) throws Exception {
+		this.setCliente(cliente);
+		this.setFilme(filme);
+		this.setCurrentDate();
 	}
 	
-	public void alugar(Cliente cliente, Filme filme, double valor) {
-		this.cliente = cliente;
-		this.filme = filme;
-		this.valor = valor;
+	protected void alugar(Cliente cliente, Filme filme, double valor) throws Exception {
+		this.setCliente(cliente);
+		this.setFilme(filme);
+		this.setValor(valor);
+		this.setCurrentDate();
 	}	
 	
-	public double getValor() {
+	protected double getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
-		this.valor = valor;
+	protected void setValor(double valor) {
+		double valorComDesconto = getDesconto(valor, filme);
+		this.valor = valorComDesconto;
+	}
+	
+	protected double getDesconto(double valor, Filme filme) {
+		GeneroFactory factory = GeneroFactory.getInstance();
+
+		GeneroEnum generoEnum = filme.getGenero();
+		Genero genero = factory.getGenero(generoEnum);
+		
+		double desconto = genero.getDesconto();
+		return (1 - desconto) * valor;
 	}
 
-	public Cliente getCliente() {
+	protected Cliente getCliente() {
 		return cliente;
 	}
+	
+	private void setCliente(Cliente cliente) throws Exception {
+		if (cliente.isAtivo() == false) {
+			throw new Exception("Cliente should be active to perform this operation");
+		}
+		
+		this.cliente = cliente;
+	}
 
-	public Filme getFilme() {
+	protected Filme getFilme() {
 		return filme;
+	}
+	
+	private void setFilme(Filme filme) {
+		this.filme = filme;
+	}
+
+	protected Date getDate() {
+		return date;
+	}
+
+	private void setDate(Date date) {
+		this.date = date;
+	}
+	
+	private void setCurrentDate() {
+		setDate(new Date());
 	}
 }
