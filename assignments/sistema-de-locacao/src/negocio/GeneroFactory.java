@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class GeneroFactory {
 	private static GeneroFactory instance = new GeneroFactory();
-	Map<GeneroEnum, Genero> mapa = new EnumMap<GeneroEnum, Genero>(GeneroEnum.class);
+	private Map<GeneroEnum, Genero> mapa = new EnumMap<GeneroEnum, Genero>(GeneroEnum.class);
 
 	private GeneroFactory() {
 		List<GeneroEnum> listaGeneros = Arrays.asList(GeneroEnum.values());
@@ -22,7 +22,7 @@ public class GeneroFactory {
 		return instance;
 	}
 	
-	public Genero getGenero(GeneroEnum generoEnum) {
+	protected Genero getGenero(GeneroEnum generoEnum) {
 		Genero genero = mapa.get(generoEnum);
 		return genero;
 	}
