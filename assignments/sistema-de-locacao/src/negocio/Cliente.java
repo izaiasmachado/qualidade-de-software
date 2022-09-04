@@ -1,16 +1,13 @@
 package negocio;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Cliente {
 	private int id;
 	private String nome;
 	private boolean ativo = true;
-	public Set<Filme> listaFilmesFavoritos;
+	protected ListaFavoritos listaFavoritos;
 	
 	public Cliente(int id, String nome) {
-		this.listaFilmesFavoritos = new HashSet<Filme>();
+		this.listaFavoritos = new ListaFavoritos(this);
 		this.id = id;
 		this.nome = nome;
 	}
