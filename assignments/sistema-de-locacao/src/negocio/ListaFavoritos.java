@@ -35,6 +35,14 @@ public class ListaFavoritos {
 		return null;
 	}
 	
+	public ArrayList<Filme> lista() {
+		return this.filmes;
+	}
+	
+	public int getTamanhoLista() {
+		return this.filmes.size();
+	}
+	
 	public Filme remove(int idFilme) {
 		Filme filmeAchado = busca(idFilme);
 		if (filmeAchado == null) return null;
