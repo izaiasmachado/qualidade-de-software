@@ -2,6 +2,8 @@ package negocio;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -106,5 +108,31 @@ public class ListaFavoritosTest {
 		listaFavoritos.adiciona(filme);
 		listaFavoritos.aluga(filme1.getId());
 		assertEquals(transacao.locacoes.size(), 0);
+	}
+	
+	@Test
+	public void testLista() throws Exception {		
+		listaFavoritos.adiciona(filme);
+		listaFavoritos.adiciona(filme1);
+		listaFavoritos.adiciona(filme2);
+
+		ArrayList<Filme> filmesFavoritos = listaFavoritos.lista();
+		assertEquals(filme, filmesFavoritos.get(0));
+		assertEquals(filme1, filmesFavoritos.get(1));
+		assertEquals(filme2, filmesFavoritos.get(2));
+	}
+	
+	@Test
+	public void testgetTamanho() throws Exception {
+		assertEquals(0, listaFavoritos.getTamanhoLista());
+
+		listaFavoritos.adiciona(filme);
+		assertEquals(1, listaFavoritos.getTamanhoLista());
+		
+		listaFavoritos.adiciona(filme1);
+		assertEquals(2, listaFavoritos.getTamanhoLista());
+		
+		listaFavoritos.adiciona(filme2);
+		assertEquals(3, listaFavoritos.getTamanhoLista());
 	}
 }
