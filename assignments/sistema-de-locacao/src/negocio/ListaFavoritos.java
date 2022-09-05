@@ -60,4 +60,8 @@ public class ListaFavoritos {
 		locacao.alugar(cliente, filme);
 		transacao.locacoes.add(locacao);
 	}
+	
+	public void aluga(Filme filme) throws Exception {
+		this.aluga(filme.getId());
+	}
 }

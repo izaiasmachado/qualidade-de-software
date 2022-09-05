@@ -93,9 +93,20 @@ public class ListaFavoritosTest {
 	}
 
 	@Test
-	public void testAluga() throws Exception {
+	public void testAlugaInt() throws Exception {
 		listaFavoritos.adiciona(filme);
 		listaFavoritos.aluga(filme.getId());
+		
+		Locacao locacao = transacao.locacoes.get(0);
+		Filme filmeLocacao = locacao.getFilme();
+		assertEquals(filme, filmeLocacao);
+		assertEquals(transacao.locacoes.size(), 1);
+	}
+	
+	@Test
+	public void testAlugaFilme() throws Exception {
+		listaFavoritos.adiciona(filme);
+		listaFavoritos.aluga(filme);
 		
 		Locacao locacao = transacao.locacoes.get(0);
 		Filme filmeLocacao = locacao.getFilme();
@@ -109,6 +120,7 @@ public class ListaFavoritosTest {
 		listaFavoritos.aluga(filme1.getId());
 		assertEquals(transacao.locacoes.size(), 0);
 	}
+
 	
 	@Test
 	public void testLista() throws Exception {		
