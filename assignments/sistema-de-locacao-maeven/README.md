@@ -5,7 +5,7 @@
 - [Pitest](https://pitest.org/)
 
 ## Cobertura do Suit de Testes Unitários
-![Coverage Junit](https://user-images.githubusercontent.com/47287096/188634618-e7cac74d-24bf-45c9-a746-9ad37961aab2.png)
+![Coverage JUnit](https://user-images.githubusercontent.com/47287096/188696009-50b30537-8d57-4e0e-b847-93dd387523df.png)
 
 ## Teste de Análise Mutante
 ### Primeiro Resultado
