@@ -8,9 +8,14 @@ import org.junit.Test;
 
 public class ClienteTest {
 	Cliente cliente;
+	int id;
+	String nome;
 	
 	@Before
 	public void setUp() throws Exception {
+		id = 1;
+		nome = "Izaias";
+		cliente = new Cliente(id, nome);
 	}
 
 	@After
@@ -19,12 +24,30 @@ public class ClienteTest {
 
 	@Test
 	public void testCliente() {
-		int id = 1;
-		String nome = "Izaias";
-		
-		cliente = new Cliente(id, nome);
 		assertEquals(id, cliente.getId());
 		assertEquals(nome, cliente.getNome());
 	}
-
+	
+	@Test
+	public void testSetAndGetId() {
+		int novoId = 2;
+		cliente.setId(novoId);
+		assertEquals(novoId, cliente.getId());
+	}
+	
+	@Test
+	public void testSetAndGetNome() {
+		String novoNome = "Pedro";
+		cliente.setNome(novoNome);
+		assertEquals(novoNome, cliente.getNome());
+	}
+	
+	@Test
+	public void testSetAndIsAtivo() {
+		cliente.setAtivo(true);
+		assertTrue(cliente.isAtivo());
+		
+		cliente.setAtivo(false);
+		assertFalse(cliente.isAtivo());
+	}
 }

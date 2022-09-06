@@ -20,18 +20,26 @@ public class GeneroTest {
 
 	@Test
 	public void testSetDescontoNegativo() {
-		genero.setDesconto(-1);
-		assertEquals(genero.getDesconto(), 0, 0.01);
+		double desconto = -0.01;	
+		genero.setDesconto(desconto);
+		assertTrue(genero.getDesconto() != desconto);
 	}
 	
 	@Test
 	public void testSetDescontoAcima() {
-		genero.setDesconto(1.01);
-		assertEquals(genero.getDesconto(), 0, 0.01);
+		double desconto = 1.01;
+		genero.setDesconto(desconto);
+		assertTrue(genero.getDesconto() != desconto);
 	}
 	
 	@Test
-	public void testSetDescontoValido() {
+	public void testSetDescontoValido() {		
+		genero.setDesconto(1.00);
+		assertEquals(genero.getDesconto(), 1.00, 0.01);
+		
+		genero.setDesconto(0.00);
+		assertEquals(genero.getDesconto(), 0.00, 0.01);
+		
 		genero.setDesconto(0.99);
 		assertEquals(genero.getDesconto(), 0.99, 0.01);
 		

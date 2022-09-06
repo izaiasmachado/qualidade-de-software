@@ -18,7 +18,6 @@ public class ListaFavoritosTest {
 	Filme filme2;
 	Transacao transacao = Transacao.getInstance();
 
-	@SuppressWarnings("deprecation")
 	@Rule
 	public final ExpectedException exception = ExpectedException.none();
 	
@@ -135,7 +134,7 @@ public class ListaFavoritosTest {
 	}
 	
 	@Test
-	public void testgetTamanho() throws Exception {
+	public void testGetTamanho() throws Exception {
 		assertEquals(0, listaFavoritos.getTamanhoLista());
 
 		listaFavoritos.adiciona(filme);
